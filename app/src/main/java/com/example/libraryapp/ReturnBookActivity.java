@@ -1,6 +1,5 @@
 package com.example.libraryapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +31,6 @@ public class ReturnBookActivity extends AppCompatActivity {
     EditText ETSearchIssue;
     Button BtnSearchIssue;
 
-    ListView listViewIssueAll;
     ListView listViewIssueSearch;
 
     List<Issue> issues;
@@ -47,7 +45,6 @@ public class ReturnBookActivity extends AppCompatActivity {
         databaseBook = FirebaseDatabase.getInstance().getReference("Issue");
 
         //getting listviews
-        listViewIssueAll = (ListView) findViewById(R.id.listViewIssueAll);
         listViewIssueSearch = (ListView) findViewById(R.id.listViewIssueSearch);
 
         ETSearchIssue = findViewById(R.id.ETSearchIssue);
@@ -55,15 +52,6 @@ public class ReturnBookActivity extends AppCompatActivity {
 
         //list to store letters
         issues = new ArrayList<>();
-
-        listViewIssueAll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Issue issue = issues.get(i);
-                showReturnDialog(issue.getIssueId(), issue.getIssueName(), issue.getBookId(), issue.getBookTitle(), issue.getIssueDate(), issue.getIssueStatus());
-                return;
-            }
-        });
 
         listViewIssueSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,7 +86,7 @@ public class ReturnBookActivity extends AppCompatActivity {
                 //creating adapter
                 IssueList bookAdapter = new IssueList(ReturnBookActivity.this, issues);
                 //attaching adapter to the listview
-                listViewIssueAll.setAdapter(bookAdapter);
+                listViewIssueSearch.setAdapter(bookAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -110,7 +98,6 @@ public class ReturnBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                listViewIssueAll.setVisibility(View.GONE);
                 //attaching value event listener
                 databaseBook.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -177,6 +164,9 @@ public class ReturnBookActivity extends AppCompatActivity {
 
                 updateIssue(issueId, issueName, bookId, bookTitle, issueStatus);
                 c.dismiss();
+
+                //clearing the previous list
+                issues.clear();
             }
         });
 
@@ -184,8 +174,11 @@ public class ReturnBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                retunBook(issueId, issueName, bookId, bookTitle, issueDate);
+                returnBook(issueId, issueName, bookId, bookTitle, issueDate);
                 c.dismiss();
+
+                //clearing the previous list
+                issues.clear();
             }
         });
     }
@@ -206,10 +199,29 @@ public class ReturnBookActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean retunBook(String issueId, String issueName, String bookId, String bookTitle, String issueDate) {
+    private boolean returnBook(String issueId, String issueName, String bookId, String bookTitle, String issueDate) {
         //getting the specified artist reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Issue").child(issueId);
         DatabaseReference databaseBook = FirebaseDatabase.getInstance().getReference("Book").child(bookId);
+
+        ValueEventListener listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Book book = new Book();
+                book = dataSnapshot.getValue(Book.class);
+                int availability = book.getBookAvailability();
+                //updating book
+                databaseBook.child("bookAvailability").setValue(availability + 1);
+                stopLockTask();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        databaseBook.addListenerForSingleValueEvent(listener);
+
 
         //int availability = Integer.parseInt(databaseBook.child("bookAvailability").getKey());
 
@@ -219,11 +231,7 @@ public class ReturnBookActivity extends AppCompatActivity {
         Issue issue = new Issue(issueId, issueName, bookId, bookTitle, issueDate, status);
         dR.setValue(issue);
 
-        //updating book
-        //databaseBook.child("bookAvailability").setValue(availability + 1);
-
         Toast.makeText(getApplicationContext(), "Book Returned", Toast.LENGTH_LONG).show();
-
         return true;
     }
 }
