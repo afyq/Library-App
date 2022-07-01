@@ -14,6 +14,22 @@
         <entry key="..\:/Users/Irfan Faid/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/layout_book.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Irfan Faid/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/layout_issue.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Irfan Faid/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/return_dialog.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_add_book.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_admin_home.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_admin_login.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_issue_book.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_main.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_return_book.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_search_book.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_select_user.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_user_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_user_login.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/activity_user_signup.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/edit_book_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/issue_book_dialog.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/layout_book.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/layout_issue.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LibraryApp/app/src/main/res/layout/return_dialog.xml" value="0.1213768115942029" />
       </map>
     </option>
   </component>

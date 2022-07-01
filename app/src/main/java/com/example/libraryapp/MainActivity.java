@@ -2,59 +2,59 @@ package com.example.libraryapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button BtnAddBook, BtnSearchBook, BtnIssueBook, BtnReturnBook, BtnStudent;
+    private static int SPLASH_SCREEN = 4000;
+
+    //Variables
+    Animation topAnim, bottomAnim;
+    ImageView image;
+    TextView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        BtnAddBook = findViewById(R.id.BtnAddBook);
-        BtnSearchBook = findViewById(R.id.BtnSearchBook);
-        BtnIssueBook = findViewById(R.id.BtnIssueBook);
-        BtnReturnBook = findViewById(R.id.BtnReturnBook);
-        BtnStudent = findViewById(R.id.BtnStudent);
+        //Animations
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
-        BtnAddBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddBookActivity.class));
-            }
-        });
+        //Hooks
+        image = findViewById(R.id.imageView);
+        logo = findViewById(R.id.textView);
 
-        BtnSearchBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SearchBookActivity.class));
-            }
-        });
+        image.setAnimation(topAnim);
+        logo.setAnimation(bottomAnim);
 
-        BtnIssueBook.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, IssueBookActivity.class));
-            }
-        });
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, SelectUser.class);
 
-        BtnReturnBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ReturnBookActivity.class));
-            }
-        });
+                Pair[] pairs = new Pair[2];
 
-        BtnStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, StudentActivity.class));
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(logo, "logo_text");
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+                startActivity(intent, options.toBundle());
+
             }
-        });
+        }, SPLASH_SCREEN);
     }
 }

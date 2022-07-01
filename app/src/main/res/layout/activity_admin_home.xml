@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminHome">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/BtnAddBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Book" />
+
+        <Button
+            android:id="@+id/BtnSearchBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Book" />
+
+        <Button
+            android:id="@+id/BtnIssueBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Issue Book" />
+
+        <Button
+            android:id="@+id/BtnReturnBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Return Book" />
+
+        <Button
+            android:id="@+id/BtnLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
+
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
