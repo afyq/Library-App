@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textViewBookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Title"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:text="Writer: "
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:id="@+id/TVBookWriter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookTitle"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="Haji Afiq"
+        android:textSize="16sp"
+        android:id="@+id/textViewBookWriter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookTitle"
+        app:layout_constraintStart_toEndOf="@+id/TVBookWriter"/>
+
+    <TextView
+        android:text="Publisher: "
+        android:textSize="16sp"
+        android:id="@+id/TVBookPublisher"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookWriter"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="Iman Publication"
+        android:textSize="16sp"
+        android:id="@+id/textViewBookPublisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookWriter"
+        app:layout_constraintStart_toEndOf="@+id/TVBookPublisher"/>
+
+    <TextView
+        android:text="Language: "
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:id="@+id/TVBookLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookPublisher"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="Malay"
+        android:textSize="16sp"
+        android:id="@+id/textViewBookLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookPublisher"
+        app:layout_constraintStart_toEndOf="@+id/TVBookLanguage"/>
+
+    <TextView
+        android:text="Year Publish: "
+        android:textSize="16sp"
+        android:id="@+id/TVBookYearPublish"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookLanguage"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="2005"
+        android:textSize="16sp"
+        android:id="@+id/textViewBookYearPublish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookLanguage"
+        app:layout_constraintStart_toEndOf="@+id/TVBookYearPublish"/>
+
+    <TextView
+        android:text="Type of Reading Material: "
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:id="@+id/TVToRM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookYearPublish"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="Fiction"
+        android:textSize="16sp"
+        android:id="@+id/textViewToRM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TVBookYearPublish"
+        app:layout_constraintStart_toEndOf="@+id/TVToRM"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

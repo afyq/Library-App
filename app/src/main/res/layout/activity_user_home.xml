@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="ADMIN HOME"
+            android:text="USER HOME"
             android:textColor="@color/purple_700"
             android:textSize="23sp"
             android:textStyle="bold" />
@@ -32,10 +32,16 @@
             android:text="Search Book" />
 
         <Button
-            android:id="@+id/BtnLogOut"
+            android:id="@+id/BtnNilam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logout" />
+            android:text="ADD NILAM" />
+
+        <Button
+            android:id="@+id/BtnProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile" />
 
     </LinearLayout>
 

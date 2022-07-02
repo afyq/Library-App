@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class AdminHome extends AppCompatActivity {
 
-    Button BtnAddBook, BtnSearchBook, BtnIssueBook, BtnReturnBook, BtnRecordHistory, BtnLogOut;
+    Button BtnAddBook, BtnSearchBook, BtnIssueBook, BtnReturnBook, BtnRecordHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class AdminHome extends AppCompatActivity {
         BtnIssueBook = findViewById(R.id.BtnIssueBook);
         BtnReturnBook = findViewById(R.id.BtnReturnBook);
         BtnRecordHistory = findViewById(R.id.BtnRecordHistory);
-        BtnLogOut = findViewById(R.id.BtnLogOut);
+
 
         BtnAddBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +58,6 @@ public class AdminHome extends AppCompatActivity {
             }
         });
 
-        BtnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminHome.this, SelectUser.class));
-            }
-        });
     }
 
 }

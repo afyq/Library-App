@@ -38,7 +38,7 @@
                 android:id="@+id/textViewUserFullname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fullname"
+                android:text="Full Name"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,17 +56,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewUserFullname" />
 
             <TextView
-                android:id="@+id/textViewKSNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KS Number"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="@+id/textViewUserMatric"
-                app:layout_constraintTop_toBottomOf="@+id/textViewUserMatric" />
-
-            <TextView
                 android:id="@+id/textViewEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,8 +63,8 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="@+id/textViewKSNumber"
-                app:layout_constraintTop_toBottomOf="@+id/textViewKSNumber" />
+                app:layout_constraintStart_toStartOf="@+id/textViewUserMatric"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserMatric" />
 
             <TextView
                 android:id="@+id/textViewNoPhone"
@@ -115,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fullname"
-                android:textColor="@color/grey"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -125,40 +114,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Matric Number"
-                android:textColor="@color/grey"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/TVUserFullname"
                 app:layout_constraintTop_toBottomOf="@+id/TVUserFullname" />
 
             <TextView
-                android:id="@+id/TVKSNumber"
+                android:id="@+id/TVEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="KS Number"
-                android:textColor="@color/grey"
+                android:text="Email"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/TVUserMatric"
                 app:layout_constraintTop_toBottomOf="@+id/TVUserMatric" />
 
             <TextView
-                android:id="@+id/TVEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="@color/grey"
-                android:textSize="16sp"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="@+id/TVKSNumber"
-                app:layout_constraintTop_toBottomOf="@+id/TVKSNumber" />
-
-            <TextView
                 android:id="@+id/TVNoPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phone Number"
-                android:textColor="@color/grey"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/TVEmail"
@@ -169,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Race"
-                android:textColor="@color/grey"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/TVNoPhone"
@@ -180,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gender"
-                android:textColor="@color/grey"
+                android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/TVRace"
@@ -194,11 +172,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/white"
         android:elevation="4dp"
         android:stateListAnimator="@null"
         android:text="Edit Profile"
-        android:textColor="@color/black"
         android:translationZ="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -209,11 +185,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/red"
         android:elevation="4dp"
         android:stateListAnimator="@null"
         android:text="Log Out"
-        android:textColor="@color/white"
         android:translationZ="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,7 +198,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="@color/main"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"

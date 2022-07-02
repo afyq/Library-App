@@ -123,6 +123,7 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
                             DocumentReference documentReference = firebaseFirestore.collection("Users").document(userID);
                             Map<String,Object> user = new HashMap<>();
                             user.put("full_name",fullName);
+                            user.put("email", email);
                             user.put("phone_number",phoneNumber);
                             user.put("card_number",cardNumber);
 
