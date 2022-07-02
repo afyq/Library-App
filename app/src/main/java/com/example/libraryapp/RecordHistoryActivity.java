@@ -24,12 +24,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ReturnBookActivity extends AppCompatActivity {
+public class RecordHistoryActivity extends AppCompatActivity {
 
     DatabaseReference databaseBook;
-
-    EditText ETSearchIssue;
-    Button BtnSearchIssue;
 
     ListView listViewIssueSearch;
 
@@ -38,17 +35,14 @@ public class ReturnBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_return_book);
+        setContentView(R.layout.activity_record_history);
 
         //getting the reference of letters node
         databaseBook = FirebaseDatabase.getInstance().getReference("Book");
         databaseBook = FirebaseDatabase.getInstance().getReference("Issue");
 
         //getting listviews
-        listViewIssueSearch = (ListView) findViewById(R.id.listViewIssueSearch);
-
-        ETSearchIssue = findViewById(R.id.ETSearchIssue);
-        BtnSearchIssue = (Button) findViewById(R.id.BtnSearchIssue);
+        listViewIssueSearch = (ListView) findViewById(R.id.listViewIssueAll);
 
         //list to store letters
         issues = new ArrayList<>();
@@ -77,14 +71,14 @@ public class ReturnBookActivity extends AppCompatActivity {
                     //getting letter
                     Issue issue = postSnapshot.getValue(Issue.class);
 
-                    if (issue.getIssueStatus() != null && issue.getIssueStatus().equals("on going")) {
+                    if (issue.getIssueStatus() != null && issue.getIssueStatus().equals("completed")) {
                         //adding letter to the list
                         issues.add(issue);
                     }
                 }
 
                 //creating adapter
-                IssueList bookAdapter = new IssueList(ReturnBookActivity.this, issues);
+                IssueList bookAdapter = new IssueList(RecordHistoryActivity.this, issues);
                 //attaching adapter to the listview
                 listViewIssueSearch.setAdapter(bookAdapter);
             }
@@ -94,55 +88,7 @@ public class ReturnBookActivity extends AppCompatActivity {
             }
         });
 
-        BtnSearchIssue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //attaching value event listener
-                databaseBook.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        String SearchIssue = ETSearchIssue.getText().toString().trim();
-
-                        //clearing the previous list
-                        issues.clear();
-
-                        if (!TextUtils.isEmpty(SearchIssue)) {
-                            //iterating through all the nodes
-                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                //getting letter
-                                Issue issue = postSnapshot.getValue(Issue.class);
-
-                                if ((issue.getBookTitle() != null && issue.getBookTitle().toLowerCase().contains(SearchIssue.toLowerCase()))
-                                        && issue.getIssueStatus() != null && issue.getIssueStatus().equals("on going")
-                                        || (issue.getIssueName() != null && issue.getIssueName().toLowerCase().contains(SearchIssue.toLowerCase()))
-                                        && issue.getIssueStatus() != null && issue.getIssueStatus().equals("on going")) {
-                                    //adding letter to the list
-                                    issues.add(issue);
-                                }
-                            }
-
-                            //creating adapter
-                            IssueList bookAdapter = new IssueList(ReturnBookActivity.this, issues);
-                            //attaching adapter to the listview
-                            listViewIssueSearch.setAdapter(bookAdapter);
-
-                            Toast.makeText(ReturnBookActivity.this, "Searching for " + SearchIssue, Toast.LENGTH_SHORT).show();
-                            ETSearchIssue.getText().clear();
-
-                        } else {
-                            Toast.makeText(ReturnBookActivity.this, "Please enter book detail!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
     }
 
     private void showReturnDialog(String issueId, String issueName, String bookId, String bookTitle, String issueDate, String issueStatus) {
@@ -235,6 +181,5 @@ public class ReturnBookActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Book Returned", Toast.LENGTH_LONG).show();
         return true;
     }
-}
 
-// token github (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)
+}

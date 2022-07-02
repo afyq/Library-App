@@ -15,10 +15,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ADMIN HOME"
+            android:textColor="@color/purple_700"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/BtnSearchBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="Search Book" />
 
         <Button

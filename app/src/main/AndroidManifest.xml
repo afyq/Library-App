@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LibraryApp">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecordHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserSearchBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserHome"
             android:exported="false" />
         <activity

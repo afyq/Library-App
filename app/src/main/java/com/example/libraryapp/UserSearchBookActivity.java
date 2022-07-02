@@ -3,14 +3,12 @@ package com.example.libraryapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -21,12 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-public class SearchBookActivity extends AppCompatActivity {
+public class UserSearchBookActivity extends AppCompatActivity {
 
     DatabaseReference databaseBook;
 
@@ -40,7 +36,7 @@ public class SearchBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book);
+        setContentView(R.layout.activity_user_search_book);
 
         //getting the reference of letters node
         databaseBook = FirebaseDatabase.getInstance().getReference("Book");
@@ -53,15 +49,6 @@ public class SearchBookActivity extends AppCompatActivity {
 
         //list to store letters
         books = new ArrayList<>();
-
-        listViewBook.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Book book = books.get(i);
-                showEditDeleteDialog(book.getBookId(), book.getBookTitle(), book.getBookWriter(), book.getBookPublisher(), book.getBookGenre(), book.getBookPage(), book.getBookAvailability());
-                return;
-            }
-        });
 
     }
 
@@ -98,15 +85,15 @@ public class SearchBookActivity extends AppCompatActivity {
                             }
 
                             //creating adapter
-                            BookList bookAdapter = new BookList(SearchBookActivity.this, books);
+                            BookList bookAdapter = new BookList(UserSearchBookActivity.this, books);
                             //attaching adapter to the listview
                             listViewBook.setAdapter(bookAdapter);
 
-                            Toast.makeText(SearchBookActivity.this, "Searching for " + SearchBook, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserSearchBookActivity.this, "Searching for " + SearchBook, Toast.LENGTH_SHORT).show();
                             ETSearchBook.getText().clear();
 
                         } else {
-                            Toast.makeText(SearchBookActivity.this, "Please enter book detail!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserSearchBookActivity.this, "Please enter book detail!", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -217,4 +204,5 @@ public class SearchBookActivity extends AppCompatActivity {
 
         return true;
     }
+
 }

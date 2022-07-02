@@ -158,7 +158,8 @@ public class IssueBookActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     String id = databaseIssue.push().getKey();
                     String name = ETIssueStudent.getText().toString().trim();
-                    String date = df.format(calendar.getTime());
+                    String issueDate = df.format(calendar.getTime());
+                    String returnDate = null;
                     int availability = bookAvailability - 1;
                     String status = "on going";
 
@@ -167,7 +168,7 @@ public class IssueBookActivity extends AppCompatActivity {
                         return;
                     }
 
-                    Issue issue = new Issue(id, name, bookId, bookTitle, date, status);
+                    Issue issue = new Issue(id, name, bookId, bookTitle, issueDate, returnDate, status);
                     databaseIssue.child(id).setValue(issue);
 
                     //updating book

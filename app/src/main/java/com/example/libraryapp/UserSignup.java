@@ -34,8 +34,8 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
 
     //defining firebaseauth object
     private FirebaseAuth mAuth;
-
     private FirebaseFirestore firebaseFirestore;
+
     private String userID;
     public String TAG = "TAG";
 

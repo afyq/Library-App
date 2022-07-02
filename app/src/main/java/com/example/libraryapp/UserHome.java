@@ -22,7 +22,7 @@ public class UserHome extends AppCompatActivity {
         BtnSearchBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UserHome.this, SearchBookActivity.class));
+                startActivity(new Intent(UserHome.this, UserSearchBookActivity.class));
             }
         });
 

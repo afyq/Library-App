@@ -53,4 +53,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewIssueName"
         app:layout_constraintStart_toEndOf="@+id/TVIssueDate"/>
 
+    <TextView
+        android:text="Return Date: "
+        android:textSize="16sp"
+        android:id="@+id/TVReturnDate"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIssueDate"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:text="30/2/2021"
+        android:textSize="16sp"
+        android:id="@+id/textViewReturnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIssueDate"
+        app:layout_constraintStart_toEndOf="@+id/TVReturnDate"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
