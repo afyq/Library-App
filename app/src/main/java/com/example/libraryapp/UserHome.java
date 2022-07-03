@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class UserHome extends AppCompatActivity {
 
-    Button BtnSearchBook, BtnProfile, BtnAddNilam;
+    Button BtnSearchBook, BtnProfile, BtnAddNilam, BtnNilamRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class UserHome extends AppCompatActivity {
 
         BtnSearchBook = findViewById(R.id.BtnSearchBook);
         BtnAddNilam = findViewById(R.id.BtnNilam);
+        BtnNilamRecord = findViewById(R.id.BtnNilamRecord);
         BtnProfile = findViewById(R.id.BtnProfile);
 
         BtnSearchBook.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +32,13 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserHome.this, AddNilamActivity.class));
+            }
+        });
+
+        BtnNilamRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserHome.this, NilamRecordActivity.class));
             }
         });
 

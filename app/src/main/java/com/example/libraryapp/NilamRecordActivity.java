@@ -13,11 +13,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,9 @@ import java.util.List;
 public class NilamRecordActivity extends AppCompatActivity {
 
     DatabaseReference databaseNilam;
+    FirebaseAuth mAuth;
+    FirebaseFirestore firebaseFirestore;
+    DocumentReference documentReference;
 
     EditText ETSearchNilam;
     Button BtnSearchNilam;
@@ -40,12 +46,14 @@ public class NilamRecordActivity extends AppCompatActivity {
 
         //getting the reference of letters node
         databaseNilam = FirebaseDatabase.getInstance().getReference("Nilam");
+        mAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         //getting listviews
-        listViewNilam = (ListView) findViewById(R.id.listViewBook);
+        listViewNilam = (ListView) findViewById(R.id.listViewNilam);
 
-        ETSearchNilam = findViewById(R.id.ETSearchBook);
-        BtnSearchNilam = (Button) findViewById(R.id.BtnSearchBook);
+        ETSearchNilam = findViewById(R.id.ETSearchNilam);
+        BtnSearchNilam = (Button) findViewById(R.id.BtnSearchNilam);
 
         //list to store letters
         nilams = new ArrayList<>();
@@ -102,7 +110,7 @@ public class NilamRecordActivity extends AppCompatActivity {
                             ETSearchNilam.getText().clear();
 
                         } else {
-                            Toast.makeText(NilamRecordActivity.this, "Please enter book detail!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NilamRecordActivity.this, "Please enter Nilam detail!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

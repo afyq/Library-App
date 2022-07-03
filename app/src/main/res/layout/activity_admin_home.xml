@@ -55,6 +55,12 @@
             android:layout_height="wrap_content"
             android:text="Record History" />
 
+        <Button
+            android:id="@+id/BtnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
+
 
     </LinearLayout>
 

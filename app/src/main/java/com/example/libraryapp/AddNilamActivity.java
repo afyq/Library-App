@@ -31,7 +31,7 @@ public class AddNilamActivity extends AppCompatActivity {
         ETBookLanguage = findViewById(R.id.ETBookLanguage);
         ETYearPublish = findViewById(R.id.ETYearPublish);
         ETToRM = findViewById(R.id.ETToRM);
-        BtnAddNilam = findViewById(R.id.BtnAddBook);
+        BtnAddNilam = findViewById(R.id.BtnAddNilam);
 
         BtnAddNilam.setOnClickListener(new View.OnClickListener() {
             @Override

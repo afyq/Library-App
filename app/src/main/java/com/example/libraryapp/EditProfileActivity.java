@@ -135,7 +135,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        startActivity(new Intent(EditProfileActivity.this, ProfileActivity.class));
         finish();
         Toast.makeText(EditProfileActivity.this, "Edit successfullly!", Toast.LENGTH_LONG).show();
     }

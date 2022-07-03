@@ -47,14 +47,6 @@ public class RecordHistoryActivity extends AppCompatActivity {
         //list to store letters
         issues = new ArrayList<>();
 
-        listViewIssueSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Issue issue = issues.get(i);
-                showReturnDialog(issue.getIssueId(), issue.getIssueName(), issue.getBookId(), issue.getBookTitle(), issue.getIssueDate(), issue.getIssueStatus());
-                return;
-            }
-        });
 
     }
 
@@ -78,7 +70,7 @@ public class RecordHistoryActivity extends AppCompatActivity {
                 }
 
                 //creating adapter
-                IssueList bookAdapter = new IssueList(RecordHistoryActivity.this, issues);
+                RecordHistoryList bookAdapter = new RecordHistoryList(RecordHistoryActivity.this, issues);
                 //attaching adapter to the listview
                 listViewIssueSearch.setAdapter(bookAdapter);
             }
@@ -169,6 +161,7 @@ public class RecordHistoryActivity extends AppCompatActivity {
         databaseBook.addListenerForSingleValueEvent(listener);
 
         String status = "completed";
+
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("d MMM yyyy, H:mm a");
         String returnDate = df.format(calendar.getTime());
